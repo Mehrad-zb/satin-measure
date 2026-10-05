@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS satin_measure_docs (
+  path VARCHAR(255) NOT NULL PRIMARY KEY,
+  col VARCHAR(100) NOT NULL,
+  data LONGTEXT NOT NULL,
+  created_at BIGINT NOT NULL,
+  updated_at BIGINT NOT NULL,
+  INDEX (col, created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS satin_measure_assets (
+  id CHAR(32) NOT NULL PRIMARY KEY,
+  mime VARCHAR(60) NOT NULL,
+  size INT NOT NULL,
+  created_by INT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
